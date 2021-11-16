@@ -1,0 +1,18 @@
+{
+	"iconDefinitions": {
+		"_file_dark": {
+			"iconPath": "./images/icon.svg"
+		},
+		"_file_light": {
+			"iconPath": "./images/icon.svg"
+		}
+	},
+    "file": "./images/icon.svg",
+	"fileExtensions": {
+		"raku"
+	},
+	"languageIds": {
+        "raku"
+		// icons by language id
+	}
+}

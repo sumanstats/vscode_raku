@@ -2,21 +2,21 @@
     "name": "raku",
     "displayName": "raku",
     "description": "Raku programming language support for VS Code",
-    "version": "0.0.1",
+    "version": "0.5.0",
     "author": "Dr Suman Khanal",
     "license": "MIT",
-    "homepage": "https://github.com/sumanstats/raku-snippets",
+    "homepage": "https://github.com/sumanstats/vscode_raku",
     "repository": {
         "type": "git",
-        "url": "https://github.com/sumanstats/raku-snippets"
+        "url": "https://github.com/sumanstats/vscode_raku"
     },
     "bugs": {
-        "url": "https://github.com/sumanstats/raku-snippets"
+        "url": "https://github.com/sumanstats/vscode_raku/issues"
     },
-    "publisher": "sumanstats",
-    "icon": "icons/icon.png",
+    "publisher": "sumankhanal",
+    "icon": "./images/icon.png",
     "engines": {
-        "vscode": "^1.50.0"
+        "vscode": "^1.60.0"
     },
     "categories": [
         "Programming Languages",
@@ -45,7 +45,7 @@
                     ".rakutest",
                     ".t"
                 ],
-                "firstLine": "((?<=\\s*)#!/.*?\\s\\braku\\b)|(use\\s+v6\\b)",
+                "firstLine": "(?x) ^ \\s* (?: use \\s v6 | =begin \\s pod | =comment | \\#!(?: (?:perl6|raku)|/.*(?:perl6|raku) (?! \\S)) | my\\s*class )",
                 "configuration": "./language-configuration.json"
             }
         ],
@@ -62,30 +62,12 @@
                 "path": "./snippets/raku.json"
             }
         ],
-        "keybindings": [
+        "keybindings": "keybindings.json",
+        "iconThemes": [
             {
-                "key": "Alt+Right",
-                "command": "editor.action.insertSnippet",
-                "when": "editorTextFocus",
-                "args": {
-                    "snippet": "»"
-                }
-            },
-            {
-                "key": "Alt+Left",
-                "command": "editor.action.insertSnippet",
-                "when": "editorTextFocus",
-                "args": {
-                    "snippet": "«"
-                }
-            },
-            {
-                "key": "Alt+-",
-                "command": "editor.action.insertSnippet",
-                "when": "editorTextFocus",
-                "args": {
-                    "snippet": "${TM_CURRENT_WORD/(.*)/${1:? => :=> }/}"
-                }
+                "id": "raku",
+                "label": "Raku",
+                "path": "./fileicons/raku-icon-theme.json"
             }
         ]
     }
