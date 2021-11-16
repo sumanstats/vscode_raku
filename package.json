@@ -1,0 +1,92 @@
+{
+    "name": "raku",
+    "displayName": "raku",
+    "description": "Raku programming language support for VS Code",
+    "version": "0.0.1",
+    "author": "Dr Suman Khanal",
+    "license": "MIT",
+    "homepage": "https://github.com/sumanstats/raku-snippets",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sumanstats/raku-snippets"
+    },
+    "bugs": {
+        "url": "https://github.com/sumanstats/raku-snippets"
+    },
+    "publisher": "sumanstats",
+    "icon": "icons/icon.png",
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets",
+        "Other"
+    ],
+    "keywords": [
+        "Raku",
+        "Raku programming language",
+        "Raku module",
+        "Raku doc"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "raku",
+                "aliases": [
+                    "Raku",
+                    "raku"
+                ],
+                "extensions": [
+                    ".nqp",
+                    ".raku",
+                    ".rakumod",
+                    ".rakudoc",
+                    ".rakutest",
+                    ".t"
+                ],
+                "firstLine": "((?<=\\s*)#!/.*?\\s\\braku\\b)|(use\\s+v6\\b)",
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "raku",
+                "scopeName": "source.raku",
+                "path": "./syntaxes/raku.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "raku",
+                "path": "./snippets/raku.json"
+            }
+        ],
+        "keybindings": [
+            {
+                "key": "Alt+Right",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus",
+                "args": {
+                    "snippet": "»"
+                }
+            },
+            {
+                "key": "Alt+Left",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus",
+                "args": {
+                    "snippet": "«"
+                }
+            },
+            {
+                "key": "Alt+-",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus",
+                "args": {
+                    "snippet": "${TM_CURRENT_WORD/(.*)/${1:? => :=> }/}"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,410 @@
+{
+    "shebang": {
+        "prefix": "shb",
+        "body": [
+            "#!/usr/bin/env raku",
+            "$0"
+        ],
+        "description": "Code snippet for shebang in raku"
+    },
+    "single-line-comment": {
+        "prefix": "slcom",
+        "body": [
+            "# ${1:single-line-comment}",
+            "$0"
+        ],
+        "description": "Code snippet for single line comment"
+    },
+    "embedded-comment": {
+        "prefix": "emcom",
+        "body": [
+            "#`( ${1:embedded-comment} ) $0"
+        ],
+        "description": "Code snippet for embedded comment"
+    },
+    "multiline-comment": {
+        "prefix": "mlcom",
+        "body": [
+            "#`[",
+            "${1:multiline-comment}",
+            "]",
+            "$0"
+        ],
+        "description": "Code snippet for multiline comment"
+    },
+    "pod-comment": {
+        "prefix": "podcom",
+        "body": [
+            "",
+            "=begin comment",
+            "${1:pod comment}",
+            "=end comment",
+            "",
+            $0
+        ],
+        "description": "Code snippet for pod comment"
+    },
+    "scalar": {
+        "prefix": "scal",
+        "body": [
+            "my $${1:name} = ${2:value}"$0
+        ],
+        "description": "Code snippet for scalar"
+    },
+    "array": {
+        "prefix": "arr",
+        "body": [
+            "my @${1:name} = ${2:values}"$0
+        ],
+        "description": "Code snippet for array"
+    },
+    "hash": {
+        "prefix": "hash",
+        "body": [
+            "my %${1:name} = ${2:key} => ${3:value}$0"
+        ],
+        "description": "Code snippet for hash"
+    },
+    "key-val in a hash": {
+        "prefix": "kv",
+        "body": [
+            "${1:key} => ${2:value}$0"
+        ],
+        "description": "Code snippet for Key => Val in a hash"
+    },
+    "for loop": {
+        "prefix": "for",
+        "body": [
+            "for ${1:iterable} {",
+            "\t${2:block}",
+            "\t}",
+            "$0"
+        ],
+        "description": "Code snippet for for loop"
+    },
+    "forwhen": {
+        "prefix": "forwhen",
+        "body": [
+            "for $1 {",
+            "\twhen $2 {$3}",
+            "\twhen $4 {$5}",
+            "\tdefault {$6}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for for loop with when in the body similar to given"
+    },
+    "for loop with pointer": {
+        "prefix": "forp",
+        "body": [
+            "for $1 -> $2 {",
+            "\t${3:block}",
+            "\t}",
+            "$0"
+        ],
+        "description": "For loop with pointy block"
+    },
+    "conditional-one": {
+        "prefix": "if",
+        "body": [
+            "if ${1:condition} {",
+            "\t${2:block}",
+            "} $0"
+        ],
+        "description": "Code snippet for if conditional"
+    },
+    "conditional-two": {
+        "prefix": "eif",
+        "body": [
+            "elsif ${1:condition} {",
+            "\t${2:block}",
+            "} $0"
+        ],
+        "description": "Code snippet for elsif branch"
+    },
+    "else branch": {
+        "prefix": "else",
+        "body": [
+            "else {",
+            "\t${1:block}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for else branch"
+    },
+    "if-else conditional": {
+        "prefix": "ife",
+        "body": [
+            "if ${1:condition} {",
+            "\t${2:block}",
+            "}",
+            "else {",
+            "\t${3:block}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for if-else conditional"
+    },
+    "conditional one-line": {
+        "prefix": "xif",
+        "body": [
+            "${1:expression} if ${2:condition}"
+        ],
+        "description": "Code snippet for conditional one-line"
+    },
+    "unless conditional": {
+        "prefix": "unless",
+        "body": [
+            "unless ${1} {",
+            "\t${2}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for unless conditional"
+    },
+    "unless conditional one-line": {
+        "prefix": "xunless",
+        "body": [
+            "${1:expression} unless ${2:condition}"
+        ],
+        "description": "Code snippet for unless conditional one-line"
+    },
+    "ternary conditional": {
+        "prefix": "tc",
+        "body": [
+            "${1:condition} ?? ${2:value-if-true} !! ${3:value-if-false}"
+        ],
+        "description": "Code snippet for ternary conditional"
+    },
+    "while loop": {
+        "prefix": "wh",
+        "body": [
+            "while ${1:condition} {",
+            "\t${2:block of code}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for while statement"
+    },
+    "repeat statement": {
+        "prefix": "rp",
+        "body": [
+            "repeat {",
+            "\t${1:block of code}",
+            "} ${2|while,until|} ${3}",
+            "$0"
+        ],
+        "description": "Code snippet for repeat statement"
+    },
+    "function/subroutine": {
+        "prefix": "sub",
+        "body": [
+            "sub ${1:function_name}(${2:parameters}) {",
+            "\t${3:body}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for subroutine"
+    },
+    "multi subroutines": {
+        "prefix": "mul",
+        "body": [
+            "multi ${1:function_name}(${2:parameters}) {",
+            "\t${3:body}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for multi-dispatch"
+    },
+    "class": {
+        "prefix": "cl",
+        "body": [
+            "${1:my} class ${2:ClassName} ${3|is,does|} ${4|Parent,Role|} {",
+            "\thas ${5:attribute};",
+            "\thas ${6:attribute};",
+            "\tmethod ${7:behavior}(${8:parameters}) {",
+            "\t\t${9:body}",
+            "\t}",
+            "\t$10",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for class definition"
+    },
+    "method": {
+        "prefix": "mth",
+        "body": [
+            "method ${1:method_name}(${2:attr}) {",
+            "\t$3",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for a method within a class"
+    },
+    "private method": {
+        "prefix": "pmth",
+        "body": [
+            "method !${1:method_name}(${2:attr}) {",
+            "\t$3",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for a private method within a class"
+    },
+    "submethod": {
+        "prefix": "smth",
+        "body": [
+            "submethod ${1:submethod_name}(${2:attr}) {",
+            "\t$3",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for a submethod within a class"
+    },
+    "given statement": {
+        "prefix": "given",
+        "body": [
+            "given ${1:var} {",
+            "\twhen ${2:condition} {",
+            "\t\t${3:# code block ...}",
+            "\t}",
+            "\t$4",
+            "\tdefault {",
+            "\t\t$5",
+            "\t}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for given statement"
+    },
+    "loop": {
+        "prefix": "loop",
+        "body": [
+            "loop (${1:initializer}; ${2:conditional}; ${3:incrementer}) {",
+            "\t${4:block}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for loop statement"
+    },
+    "grammar": {
+        "prefix": "gm",
+        "body": [
+            "grammar $1 {",
+            "\t$2",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for creating grammar"
+    },
+    "token": {
+        "prefix": "token",
+        "body": [
+            "token $1 {$2}",
+            "$0"
+        ],
+        "description": "Code snippet for token"
+    },
+    "role grammar": {
+        "prefix": "role",
+        "body": [
+            "role $1 {",
+            "\t$2",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for role grammar"
+    },
+    "rule grammar": {
+        "prefix": "rule",
+        "body": [
+            "rule $1 {$2}",
+            "$0"
+        ],
+        "description": "Code snippet for rule grammar"
+    },
+    "regex": {
+        "prefix": "regex",
+        "body": [
+            "regex $1 {",
+            "\t$2",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for regex"
+    },
+    "main function": {
+        "prefix": "main",
+        "body": [
+            "sub MAIN(${1:parameters}) {",
+            "\t${2:body}",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for MAIN function"
+    },
+    "use nativeCall": {
+        "prefix": "natc1",
+        "body": [
+            "use NativeCall;",
+            "$0"
+        ],
+        "description": "Code snippet to use NativeCall"
+    },
+    "nativeCall function without arugments": {
+        "prefix": "natc2",
+        "body": [
+            "sub ${1:some_argless_function}() is native(\"${2:shared_library}\") { * };",
+            "$0"
+        ],
+        "description": "Code snippet for argless function in nativecall"
+    },
+    "nativeCall function with arguments": {
+        "prefix": "natc3",
+        "body": [
+            "sub ${1:function_name}(${2:argument_types}) returns ${3:return_type} is native(\"${4:shared_library}\") is symbol('${5:name_of_function_inside_shared_library}') { * };",
+            "$0"
+        ],
+        "description": "Code snippet for function in nativecall with arguments"
+    },
+    "test in raku": {
+        "prefix": "test",
+        "body": [
+            "use v6;",
+            "use Test;",
+            "${1:use lib 'lib';}",
+            "",
+            "plan ${2:num-tests};",
+            "$0"
+        ],
+        "description": "Code snippet for tests in raku"
+    },
+    "reading whole file in raku": {
+        "prefix": "slurp",
+        "body": [
+            "my ${1:var} = ${2:filename}.IO.slurp;",
+            "$0"
+        ],
+        "description": "Code snippet for file slurp"
+    },
+    "reading file line by line in raku": {
+        "prefix": "rfile",
+        "body": [
+            "for ${1:filename}.IO.lines -> \\$line {",
+            "\t$2",
+            "}",
+            "$0"
+        ],
+        "description": "Code snippet for reading file line by line"
+    },
+    "open file": {
+        "prefix": "open",
+        "body": [
+            "my \\$fh = open ${1:filename}, ${2|:r,:w,:a|};",
+            "${3:# actions ...};",
+            "\\$fh.close;"
+            "$0"
+        ],
+        "description": "Code snippet for opening file"
+    }
+}
